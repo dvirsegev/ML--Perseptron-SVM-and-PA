@@ -125,6 +125,7 @@ class SVM(Algorithm):
                                                                                :] + self.learning_rate * inputs
                     self.w[y_hat, :] = (1 - self.lamda * self.learning_rate) * self.w[label,
                                                                                :] - self.learning_rate * inputs
+                    self.w[3 - label - y_hat] = (1 - self.lamda * self.learning_rate) * self.w[3 - label - y_hat]
 
     def weight(self):
         return self.w
